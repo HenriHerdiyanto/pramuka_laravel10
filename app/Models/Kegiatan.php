@@ -15,6 +15,13 @@ class Kegiatan extends Model
         'tanggal',
         'keterangan',
         'status',
+        'surat',
         'foto'
     ];
+
+    // relasi dengan tabel laporans
+    public function laporans()
+    {
+        return $this->hasMany(Laporan::class);
+    }
 }

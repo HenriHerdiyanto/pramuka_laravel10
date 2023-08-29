@@ -96,4 +96,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update'])->name('news.update');
     // news delete
     Route::delete('/news/destroy/{id}', [App\Http\Controllers\NewsController::class, 'destroy'])->name('news.destroy');
+
+    // laporan
+    Route::get('/laporan', [App\Http\Controllers\LaporanController::class, 'index'])->name('laporan');
+    // laporan create
+    Route::get('/laporan/create', [App\Http\Controllers\LaporanController::class, 'create'])->name('laporan.create');
+    // laporan store
+    Route::post('/laporan/store', [App\Http\Controllers\LaporanController::class, 'store'])->name('laporan.store');
+    // laporan edit
+    Route::get('/laporan/edit/{id}', [App\Http\Controllers\LaporanController::class, 'edit'])->name('laporan.edit');
+    // laporan update
+    Route::put('/laporan/update/{id}', [App\Http\Controllers\LaporanController::class, 'update'])->name('laporan.update');
+    // laporan delete
+    Route::delete('/laporan/destroy/{id}', [App\Http\Controllers\LaporanController::class, 'destroy'])->name('laporan.destroy');
 });

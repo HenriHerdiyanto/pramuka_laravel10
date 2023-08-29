@@ -109,67 +109,53 @@
 
                 <!-- ======= Sidebar ======= -->
                 <aside id="sidebar" class="sidebar">
-
                     <ul class="sidebar-nav" id="sidebar-nav">
-
                         <li class="nav-item">
-                            <a class="nav-link collapsed " href="{{ route('home') }}">
-                                <i class="bi bi-grid"></i>
+                            <a class="nav-link collapsed" href="{{ route('home') }}">
+                                <i class="bi bi-house-door"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/kategori">
-                                <i class="bi bi-gear"></i><span>Kategori Dewan</span>
+                                <i class="bi bi-gear"></i>
+                                <span>Kategori Dewan</span>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/member">
-                                <i class="bi bi-people"></i><span>Member Dewan</span>
+                                <i class="bi bi-person"></i>
+                                <span>Member Dewan</span>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/pengumuman">
-                                <i class="bi bi-menu-button-wide"></i><span>Pengumuman</span>
+                                <i class="bi bi-megaphone"></i>
+                                <span>Pengumuman</span>
                             </a>
                         </li>
-
-                        {{-- dropdown --}}
                         <div class="dropdown">
                             <a class="nav-link collapsed dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-menu-button-wide"></i><span>Kegiatan</span>
+                                <i class="bi bi-calendar"></i>
+                                <span>Kegiatan</span>
                             </a>
-
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/kegiatan">Buat Kegiatan</a></li>
+                                <li><a class="dropdown-item" href="/laporan">Laporan Kegiatan</a></li>
                                 <li><a class="dropdown-item" href="#">Daftar Peserta</a></li>
                             </ul>
                         </div>
-
-
-                        <!-- End Charts Dropdown -->
-
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/barang">
-                                <i class="bi bi-layout-text-window-reverse"></i><span>Barang</span>
+                                <i class="bi bi-shop"></i>
+                                <span>Shop</span>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/news">
-                                <i class="bi bi-bar-chart"></i><span>Berita</span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link collapsed" href="pages-contact.html">
-                                <i class="bi bi-envelope"></i>
-                                <span>Contact</span>
+                                <i class="bi bi-newspaper"></i>
+                                <span>Berita</span>
                             </a>
                         </li>
 
@@ -185,13 +171,10 @@
                                 @csrf
                             </form>
                         </li><!-- End Exit Page Nav -->
-
                     </ul>
-
                 </aside>
             </div>
         </nav>
-
         <main id="main" class="main">
             @yield('content')
         </main>

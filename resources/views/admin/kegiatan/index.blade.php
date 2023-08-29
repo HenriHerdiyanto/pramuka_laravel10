@@ -88,7 +88,8 @@
                     <div class="card-body pb-3">
                         <h5 class="card-title">Pramuka <span>| This Month</span></h5>
 
-                        <img class="img-fluid rounded-3" src="{{ asset('pramuka.jpg') }}" alt="">
+                        <img class="img-fluid rounded-3" style="width: 100%;" src="{{ asset('pramuka.jpg') }}"
+                            alt="">
 
                     </div>
                 </div>

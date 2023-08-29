@@ -57,7 +57,7 @@
                             <div class="mb-3 row">
                                 <label for="keterangan" class="col-sm-2 col-form-label">Keterangan Kegiatan</label>
                                 <div class="col-sm-10">
-                                    <textarea class="tinymce-editor" name="keterangan" rows="5" required>{{ $kegiatan->keterangan }}</textarea>
+                                    <textarea class="form-control" name="keterangan" rows="5" required>{{ $kegiatan->keterangan }}</textarea>
                                     {{-- <textarea name="isi" id="isi" cols="30" rows="10" class="form-control" required></textarea> --}}
                                 </div>
                             </div>
@@ -72,9 +72,27 @@
                                     </select>
                                 </div>
                             </div>
+                            {{-- surat --}}
+                            <div class="mb-3 row">
+                                <label for="surat" class="col-sm-2 col-form-label">Ganti Surat</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="surat" class="form-control" id="surat">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="surat" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    {{-- iframe --}}
+                                    <iframe src="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" width="100%"
+                                        height="500px"></iframe>
+                                    {{-- link --}}
+                                    {{-- <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" target="_blank"
+                                        rel="noopener noreferrer">Lihat Surat</a> --}}
+                                </div>
+                            </div>
                             {{-- foto --}}
                             <div class="mb-3 row">
-                                <label for="foto" class="col-sm-2 col-form-label">Foto Kegiatan</label>
+                                <label for="foto" class="col-sm-2 col-form-label">Ganti Foto Kegiatan</label>
                                 <div class="col-sm-10">
                                     <input type="file" name="foto" class="form-control" id="foto">
                                 </div>

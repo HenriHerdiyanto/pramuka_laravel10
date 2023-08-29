@@ -54,8 +54,15 @@
                             <div class="mb-3 row">
                                 <label for="keterangan" class="col-sm-2 col-form-label">Keterangan Kegiatan</label>
                                 <div class="col-sm-10">
-                                    <textarea class="tinymce-editor" name="keterangan" rows="5" required></textarea>
+                                    <textarea class="form-control" name="keterangan" rows="5" required></textarea>
                                     {{-- <textarea name="isi" id="isi" cols="30" rows="10" class="form-control" required></textarea> --}}
+                                </div>
+                            </div>
+                            {{-- upload surat --}}
+                            <div class="mb-3 row">
+                                <label for="surat" class="col-sm-2 col-form-label">Upload Surat</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="surat" class="form-control" id="surat" required>
                                 </div>
                             </div>
                             {{-- foto --}}

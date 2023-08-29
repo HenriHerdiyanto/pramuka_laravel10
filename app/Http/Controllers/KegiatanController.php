@@ -35,9 +35,20 @@ class KegiatanController extends Controller
             'tanggal' => 'required',
             'keterangan' => 'required',
             'status' => 'required',
+            'surat' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
+        // upload surat
+        if ($request->hasFile('surat')) {
+            $file = $request->file('surat');
+            $nama_file_surat = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'kegiatan_fotos';
+            $file->move(public_path($tujuan_upload), $nama_file_surat);
+        } else {
+            return redirect()->back()->with('error', 'Gagal upload surat');
+        }
+        // upload foto
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $nama_file = time() . "_" . $file->getClientOriginalName();
@@ -47,12 +58,14 @@ class KegiatanController extends Controller
             return redirect()->back()->with('error', 'Gagal upload foto');
         }
 
+
         $kegiatan = new Kegiatan;
         $kegiatan->nama_kegiatan = $validatedData['nama_kegiatan'];
         $kegiatan->tempat = $validatedData['tempat'];
         $kegiatan->tanggal = $validatedData['tanggal'];
         $kegiatan->keterangan = $validatedData['keterangan'];
         $kegiatan->status = $validatedData['status'];
+        $kegiatan->surat = $nama_file_surat;
         $kegiatan->foto = $nama_file;
         $kegiatan->save();
 
