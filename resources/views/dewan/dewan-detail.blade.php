@@ -6,7 +6,7 @@
             <!-- Header Content -->
             <div class="header-content position-relative d-flex align-items-center justify-content-between">
                 <!-- Back Button -->
-                <div class="back-button"><a href="/daftar">
+                <div class="back-button"><a href="/">
                         <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16"
                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -15,7 +15,7 @@
                         </svg></a></div>
                 <!-- Page Title -->
                 <div class="page-heading">
-                    <h6 class="mb-0">Kegiatan Details</h6>
+                    <h6 class="mb-0">Daftar Anggota Dewan</h6>
                 </div>
                 <!-- Settings -->
                 <div class="setting-wrapper">
@@ -41,64 +41,64 @@
             </div>
         </div>
     </div>
-    <div class="page-content-wrapper">
+    <div class="page-content-wrapper py-3">
         <div class="container">
-            <div class="pt-3 d-block"></div>
-            <div class="blog-details-post-thumbnail position-relative">
-                <img class="w-100 rounded-lg" src="{{ asset('kegiatan_fotos/' . $kegiatan->foto) }}" alt="">
-                <a class="post-bookmark position-absolute card-badge" href="#">
-                    <i class="bi bi-bookmark"></i>
-                </a>
-            </div>
-        </div>
-        <div class="blog-description py-3">
-            <div class="container">
-                {{-- status jika aktif maka bg-primary jika tidak aktif bg-danger --}}
-                @php
-                    $status = $kegiatan->status;
-                    if ($status == 'aktif') {
-                        echo '<a class="badge bg-primary mb-2 d-inline-block" href="#">Status Aktif</a>';
-                    } else {
-                        echo '<a class="badge bg-danger mb-2 d-inline-block" href="#">Tidak Aktif</a>';
-                    }
-                @endphp
-                {{-- <a class="badge bg-primary mb-2 d-inline-block" href="#">{{ $kegiatan->status }}</a> --}}
-                <h3 class="mb-3">{{ $kegiatan->nama_kegiatan }}</h3>
-                <div class="d-flex align-items-center mb-4">
-                    <span class="ms-2"><i class="bi bi-person-fill"></i> Admin</span>
-                </div>
-                <p class="fz-14"></p>
-            </div>
-        </div>
-        <!-- All Comments -->
-        <div class="rating-and-review-wrapper pb-3 mt-3">
-            <div class="container">
-                <h6 class="mb-3"></h6>
-                {{-- download surat --}}
-                <div class="card p-2">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="mx-3">Detail Kegiatan</h6>
-                        </div>
-                        <div class="col-6 text-end">
-                            <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" class="btn btn-outline-primary"
-                                download>Download Surat</a>
+            <div class="card invoice-card shadow">
+                <div class="card-body">
+                    <!-- Download Invoice -->
+                    <div class="download-invoice text-end mb-3">
+                        <a class="btn btn-sm btn-primary me-2" href="{{ route('generate-pdf') }}">
+                            <i class="bi bi-file-earmark-pdf me-1"></i>PDF
+                        </a>
+
+                        <a class="btn btn-sm btn-light" href="#">
+                            <i class="bi bi-printer me-1"></i>Print
+                        </a>
+                    </div>
+                    <!-- Invoice Info -->
+                    <div class="invoice-info text-end mb-4">
+                        {{-- @foreach ($members as $data)
+                            <h5 class="mb-1 fz-14">{{ $members->nama }}</h5>
+                        @endforeach --}}
+                        {{-- <h6 class="fz-12">ID Keg. #{{ $kategoriMembers->id }}</h6>
+                        <p class="mb-0 fz-12">{{ $kategoriMembers->tanggal }}</p> --}}
+                    </div>
+                    <!-- Invoice Table -->
+                    <div class="invoice-table">
+                        <div class="table-responsive">
+                            <table class="table table-bordered caption-top">
+                                <caption>List of works</caption>
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Jabatan</th>
+                                        <th>Ambalan</th>
+                                        <th>No Handphone</th>
+                                        <th>Foto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($kategoriMembers as $data)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->jabatan }}</td>
+                                            <td class="text-center">{{ $data->ambalan }}</td>
+                                            <td class="text-center">{{ $data->no_hp }}</td>
+                                            <td class="text-center">
+                                                <img src="{{ asset('member_fotos/' . $data->foto) }}" alt=""
+                                                    style="width: 100px;">
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </div><br>
-                <div class="card">
-                    <div class="card-body">
-                        <p>{{ $kegiatan->keterangan }}</p>
-                        <h6>Tempat Kegiatan</h6>
-                        <p>{{ $kegiatan->tempat }}</p>
-                        <h6>Tanggal Kegiatan</h6>
-                        <p>{{ $kegiatan->tanggal }}</p><br>
-                    </div>
-                    <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar
-                        Sekarang</a>
+                    <p class="mb-0">Notice: This is auto generated invoice.</p>
                 </div>
             </div>
         </div>
-        <!-- Comment Form -->
     </div>
 @endsection

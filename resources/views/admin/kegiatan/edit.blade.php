@@ -36,28 +36,28 @@
                                 <label for="nama_kegiatan" class="col-sm-2 col-form-label">Nama Kegiatan</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nama_kegiatan" class="form-control" id="nama_kegiatan"
-                                        value="{{ $kegiatan->nama_kegiatan }}" required>
+                                        value="{{ $kegiatan->nama_kegiatan }}">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="tempat" class="col-sm-2 col-form-label">Tempat Kegiatan</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="tempat" class="form-control" id="tempat"
-                                        value="{{ $kegiatan->tempat }}" required>
+                                        value="{{ $kegiatan->tempat }}">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Kegiatan</label>
                                 <div class="col-sm-10">
                                     <input type="date" name="tanggal" class="form-control" id="tanggal"
-                                        value="{{ $kegiatan->tanggal }}" required>
+                                        value="{{ $kegiatan->tanggal }}">
                                 </div>
                             </div>
                             {{-- keterangan --}}
                             <div class="mb-3 row">
                                 <label for="keterangan" class="col-sm-2 col-form-label">Keterangan Kegiatan</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" name="keterangan" rows="5" required>{{ $kegiatan->keterangan }}</textarea>
+                                    <textarea class="form-control" name="keterangan" rows="5">{{ $kegiatan->keterangan }}</textarea>
                                     {{-- <textarea name="isi" id="isi" cols="30" rows="10" class="form-control" required></textarea> --}}
                                 </div>
                             </div>
@@ -76,7 +76,8 @@
                             <div class="mb-3 row">
                                 <label for="surat" class="col-sm-2 col-form-label">Ganti Surat</label>
                                 <div class="col-sm-10">
-                                    <input type="file" name="surat" class="form-control" id="surat">
+                                    <input type="file" name="surat" value="{{ $kegiatan->surat }}" class="form-control"
+                                        id="surat">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -94,7 +95,8 @@
                             <div class="mb-3 row">
                                 <label for="foto" class="col-sm-2 col-form-label">Ganti Foto Kegiatan</label>
                                 <div class="col-sm-10">
-                                    <input type="file" name="foto" class="form-control" id="foto">
+                                    <input type="file" name="foto" value="{{ $kegiatan->foto }}" class="form-control"
+                                        id="foto">
                                 </div>
                             </div>
                             <div class="mb-3 row">

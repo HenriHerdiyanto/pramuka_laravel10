@@ -45,6 +45,22 @@ Route::get('/perlengkapan', [App\Http\Controllers\PengumumanUserController::clas
 // perlengkapan-detail
 Route::get('/perlengkapan-detail/{id}', [App\Http\Controllers\PengumumanUserController::class, 'perlengkapanDetail'])->name('perlengkapan-detail');
 
+// dewan
+Route::get('/dewan', [App\Http\Controllers\DewanController::class, 'index'])->name('dewan');
+// dewan-detail
+Route::get('/dewan-detail/{kategori_id}', [App\Http\Controllers\DewanController::class, 'dewanDetail'])->name('dewan-detail');
+
+// pembina
+Route::get('/pembina', [App\Http\Controllers\PembinaController::class, 'index'])->name('pembina');
+// pembina create
+Route::get('/pembina/create', [App\Http\Controllers\PembinaController::class, 'create'])->name('pembina.create');
+// pembina store
+Route::post('/pembina/store', [App\Http\Controllers\PembinaController::class, 'store'])->name('pembina.store');
+// pembina konfirmasi
+Route::get('/pembina/konfirmasi', [App\Http\Controllers\PembinaController::class, 'konfirmasi'])->name('pembina.konfirmasi');
+
+
+
 
 
 
@@ -140,4 +156,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/laporan/update/{id}', [App\Http\Controllers\LaporanController::class, 'update'])->name('laporan.update');
     // laporan delete
     Route::delete('/laporan/destroy/{id}', [App\Http\Controllers\LaporanController::class, 'destroy'])->name('laporan.destroy');
+
+    // pembina-admin
+    Route::get('/pembina-admin', [App\Http\Controllers\PembinaController::class, 'PembinaAdmin'])->name('pembina-admin');
+    // pembina-admin edit
+    Route::get('/pembina-admin/edit/{id}', [App\Http\Controllers\PembinaController::class, 'edit'])->name('pembina-admin.edit');
+    // pembina-admin update
+    Route::put('/pembina-admin/update/{id}', [App\Http\Controllers\PembinaController::class, 'update'])->name('pembina-admin.update');
+    // pembina-admin delete
+    Route::delete('/pembina-admin/destroy/{id}', [App\Http\Controllers\PembinaController::class, 'destroy'])->name('pembina-admin.destroy');
 });

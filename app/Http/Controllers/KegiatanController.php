@@ -96,7 +96,7 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::find($id);
         $validatedData = $request->validate([
-            'nama_kegiatan' => 'required|max:255',
+            'nama_kegiatan' => 'max:255',
             'tempat' => 'required',
             'tanggal' => 'required',
             'keterangan' => 'required',

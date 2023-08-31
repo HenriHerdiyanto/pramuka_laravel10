@@ -6,7 +6,7 @@
             <!-- Header Content -->
             <div class="header-content position-relative d-flex align-items-center justify-content-between">
                 <!-- Back Button -->
-                <div class="back-button"><a href="/daftar">
+                <div class="back-button"><a href="/">
                         <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16"
                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -15,7 +15,7 @@
                         </svg></a></div>
                 <!-- Page Title -->
                 <div class="page-heading">
-                    <h6 class="mb-0">Kegiatan Details</h6>
+                    <h6 class="mb-0">Data Pembina</h6>
                 </div>
                 <!-- Settings -->
                 <div class="setting-wrapper">
@@ -41,64 +41,61 @@
             </div>
         </div>
     </div>
-    <div class="page-content-wrapper">
-        <div class="container">
-            <div class="pt-3 d-block"></div>
-            <div class="blog-details-post-thumbnail position-relative">
-                <img class="w-100 rounded-lg" src="{{ asset('kegiatan_fotos/' . $kegiatan->foto) }}" alt="">
-                <a class="post-bookmark position-absolute card-badge" href="#">
-                    <i class="bi bi-bookmark"></i>
-                </a>
-            </div>
-        </div>
-        <div class="blog-description py-3">
-            <div class="container">
-                {{-- status jika aktif maka bg-primary jika tidak aktif bg-danger --}}
-                @php
-                    $status = $kegiatan->status;
-                    if ($status == 'aktif') {
-                        echo '<a class="badge bg-primary mb-2 d-inline-block" href="#">Status Aktif</a>';
-                    } else {
-                        echo '<a class="badge bg-danger mb-2 d-inline-block" href="#">Tidak Aktif</a>';
-                    }
-                @endphp
-                {{-- <a class="badge bg-primary mb-2 d-inline-block" href="#">{{ $kegiatan->status }}</a> --}}
-                <h3 class="mb-3">{{ $kegiatan->nama_kegiatan }}</h3>
-                <div class="d-flex align-items-center mb-4">
-                    <span class="ms-2"><i class="bi bi-person-fill"></i> Admin</span>
-                </div>
-                <p class="fz-14"></p>
-            </div>
-        </div>
-        <!-- All Comments -->
-        <div class="rating-and-review-wrapper pb-3 mt-3">
-            <div class="container">
-                <h6 class="mb-3"></h6>
-                {{-- download surat --}}
-                <div class="card p-2">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="mx-3">Detail Kegiatan</h6>
-                        </div>
-                        <div class="col-6 text-end">
-                            <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" class="btn btn-outline-primary"
-                                download>Download Surat</a>
-                        </div>
+    <div class="container py-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img class="img-fluid" style="width: 20%;" src="{{ asset('pembina.png') }}" alt="">
                     </div>
-                </div><br>
-                <div class="card">
-                    <div class="card-body">
-                        <p>{{ $kegiatan->keterangan }}</p>
-                        <h6>Tempat Kegiatan</h6>
-                        <p>{{ $kegiatan->tempat }}</p>
-                        <h6>Tanggal Kegiatan</h6>
-                        <p>{{ $kegiatan->tanggal }}</p><br>
+                    <div class="col-md-6 text-end">
+                        <a href="{{ route('pembina.create') }}" class="btn btn-outline-primary">Permintaan Pembina</a>
                     </div>
-                    <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar
-                        Sekarang</a>
                 </div>
             </div>
         </div>
-        <!-- Comment Form -->
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="w-100" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Nama Ambalan</th>
+                                <th>Nama Pengajar</th>
+                                <th>No Handphone</th>
+                                <th>Surat</th>
+                                <th>Permintaan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pembinas as $item)
+                                <tr>
+                                    <td>{{ $item->nama_ambalan }}</td>
+                                    <td>
+                                        @empty($item->nama_pengajar)
+                                            Sedang Diproses
+                                        @else
+                                            {{ $item->nama_pengajar }}
+                                        @endempty
+                                    </td>
+                                    <td>{{ $item->no_hp }}</td>
+                                    <td>
+                                        @empty($item->surat)
+                                            Sedang Diproses
+                                        @else
+                                            {{ $item->surat }}
+                                        @endempty
+                                    </td>
+                                    <td>{{ $item->jenis }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

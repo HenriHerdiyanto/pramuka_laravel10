@@ -6,7 +6,7 @@
             <!-- Header Content -->
             <div class="header-content position-relative d-flex align-items-center justify-content-between">
                 <!-- Back Button -->
-                <div class="back-button"><a href="/daftar">
+                <div class="back-button"><a href="/">
                         <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16"
                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -15,7 +15,7 @@
                         </svg></a></div>
                 <!-- Page Title -->
                 <div class="page-heading">
-                    <h6 class="mb-0">Kegiatan Details</h6>
+                    <h6 class="mb-0">All Kegiatan</h6>
                 </div>
                 <!-- Settings -->
                 <div class="setting-wrapper">
@@ -40,65 +40,43 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="page-content-wrapper">
-        <div class="container">
-            <div class="pt-3 d-block"></div>
-            <div class="blog-details-post-thumbnail position-relative">
-                <img class="w-100 rounded-lg" src="{{ asset('kegiatan_fotos/' . $kegiatan->foto) }}" alt="">
-                <a class="post-bookmark position-absolute card-badge" href="#">
-                    <i class="bi bi-bookmark"></i>
-                </a>
-            </div>
-        </div>
-        <div class="blog-description py-3">
-            <div class="container">
-                {{-- status jika aktif maka bg-primary jika tidak aktif bg-danger --}}
-                @php
-                    $status = $kegiatan->status;
-                    if ($status == 'aktif') {
-                        echo '<a class="badge bg-primary mb-2 d-inline-block" href="#">Status Aktif</a>';
-                    } else {
-                        echo '<a class="badge bg-danger mb-2 d-inline-block" href="#">Tidak Aktif</a>';
-                    }
-                @endphp
-                {{-- <a class="badge bg-primary mb-2 d-inline-block" href="#">{{ $kegiatan->status }}</a> --}}
-                <h3 class="mb-3">{{ $kegiatan->nama_kegiatan }}</h3>
-                <div class="d-flex align-items-center mb-4">
-                    <span class="ms-2"><i class="bi bi-person-fill"></i> Admin</span>
-                </div>
-                <p class="fz-14"></p>
-            </div>
-        </div>
-        <!-- All Comments -->
-        <div class="rating-and-review-wrapper pb-3 mt-3">
-            <div class="container">
-                <h6 class="mb-3"></h6>
-                {{-- download surat --}}
-                <div class="card p-2">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="mx-3">Detail Kegiatan</h6>
+    </div><br>
+    <!-- Service Card -->
+    <div class="container">
+        @php
+            $backgroundColors = ['bg-danger', 'bg-success', 'bg-info', 'bg-danger', 'bg-info', 'bg-dark'];
+            $currentColorIndex = 0;
+        @endphp
+
+        @foreach ($kategoriMembers as $data)
+            <!-- Debugging: Output the kategori_id for each data -->
+            {{-- {{ dd($data->kategori_id) }} --}}
+
+            <!-- Service Card -->
+            <div class="card service-card {{ $backgroundColors[$currentColorIndex] }} bg-gradient mb-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="service-text">
+                            <h3>{{ $data->nama }}</h3>
+                            {{-- view detail yang berisi parameter kategori_id --}}
+                            {{-- <a href="{{ route('dewan-detail', ['kategori_id' => $data->kategori_id]) }}"
+                                class="btn btn-outline-light">View Detail</a> --}}
+                            <a href="/dewan-detail/{{ $data->id }}" class="btn btn-outline-light">View Detail</a>
                         </div>
-                        <div class="col-6 text-end">
-                            <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" class="btn btn-outline-primary"
-                                download>Download Surat</a>
+                        <div class="service-img">
+                            <img class="img-fluid" style="width: 50%;" src="{{ asset('kategori_fotos/' . $data->foto) }}"
+                                alt="">
                         </div>
                     </div>
-                </div><br>
-                <div class="card">
-                    <div class="card-body">
-                        <p>{{ $kegiatan->keterangan }}</p>
-                        <h6>Tempat Kegiatan</h6>
-                        <p>{{ $kegiatan->tempat }}</p>
-                        <h6>Tanggal Kegiatan</h6>
-                        <p>{{ $kegiatan->tanggal }}</p><br>
-                    </div>
-                    <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar
-                        Sekarang</a>
                 </div>
             </div>
-        </div>
-        <!-- Comment Form -->
+
+            @php
+                $currentColorIndex = ($currentColorIndex + 1) % count($backgroundColors);
+            @endphp
+        @endforeach
+
+
+
     </div>
 @endsection

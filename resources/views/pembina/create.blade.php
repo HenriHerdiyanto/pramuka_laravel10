@@ -6,7 +6,7 @@
             <!-- Header Content -->
             <div class="header-content position-relative d-flex align-items-center justify-content-between">
                 <!-- Back Button -->
-                <div class="back-button"><a href="/daftar">
+                <div class="back-button"><a href="/">
                         <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16"
                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -15,7 +15,7 @@
                         </svg></a></div>
                 <!-- Page Title -->
                 <div class="page-heading">
-                    <h6 class="mb-0">Kegiatan Details</h6>
+                    <h6 class="mb-0">Permintaan Pembina</h6>
                 </div>
                 <!-- Settings -->
                 <div class="setting-wrapper">
@@ -41,64 +41,46 @@
             </div>
         </div>
     </div>
-    <div class="page-content-wrapper">
+    <div class="page-content-wrapper py-3">
         <div class="container">
-            <div class="pt-3 d-block"></div>
-            <div class="blog-details-post-thumbnail position-relative">
-                <img class="w-100 rounded-lg" src="{{ asset('kegiatan_fotos/' . $kegiatan->foto) }}" alt="">
-                <a class="post-bookmark position-absolute card-badge" href="#">
-                    <i class="bi bi-bookmark"></i>
-                </a>
-            </div>
-        </div>
-        <div class="blog-description py-3">
-            <div class="container">
-                {{-- status jika aktif maka bg-primary jika tidak aktif bg-danger --}}
-                @php
-                    $status = $kegiatan->status;
-                    if ($status == 'aktif') {
-                        echo '<a class="badge bg-primary mb-2 d-inline-block" href="#">Status Aktif</a>';
-                    } else {
-                        echo '<a class="badge bg-danger mb-2 d-inline-block" href="#">Tidak Aktif</a>';
-                    }
-                @endphp
-                {{-- <a class="badge bg-primary mb-2 d-inline-block" href="#">{{ $kegiatan->status }}</a> --}}
-                <h3 class="mb-3">{{ $kegiatan->nama_kegiatan }}</h3>
-                <div class="d-flex align-items-center mb-4">
-                    <span class="ms-2"><i class="bi bi-person-fill"></i> Admin</span>
-                </div>
-                <p class="fz-14"></p>
-            </div>
-        </div>
-        <!-- All Comments -->
-        <div class="rating-and-review-wrapper pb-3 mt-3">
-            <div class="container">
-                <h6 class="mb-3"></h6>
-                {{-- download surat --}}
-                <div class="card p-2">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="mx-3">Detail Kegiatan</h6>
+            <div class="card">
+                <div class="card-body">
+                    <form class="was-validated" action="{{ route('pembina.store') }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="form-group">
+                            <label class="form-label" for="exampleInputText">Nama Ambalan</label>
+                            <input class="form-control" name="nama_ambalan" id="exampleInputText" type="text" required>
                         </div>
-                        <div class="col-6 text-end">
-                            <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" class="btn btn-outline-primary"
-                                download>Download Surat</a>
+                        <div class="form-group">
+                            <label class="form-label" for="exampleInputnumber">Nomor Handphone</label>
+                            <input class="form-control" name="no_hp" id="exampleInputnumber" type="number" required>
                         </div>
-                    </div>
-                </div><br>
-                <div class="card">
-                    <div class="card-body">
-                        <p>{{ $kegiatan->keterangan }}</p>
-                        <h6>Tempat Kegiatan</h6>
-                        <p>{{ $kegiatan->tempat }}</p>
-                        <h6>Tanggal Kegiatan</h6>
-                        <p>{{ $kegiatan->tanggal }}</p><br>
-                    </div>
-                    <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar
-                        Sekarang</a>
+                        {{-- jenis select option --}}
+                        <div class="form-group">
+                            <label for="">Permintaan</label>
+                            <select name="jenis" id="" class="form-control">
+                                <option> --- Pilih ---</option>
+                                <option value="pembina">Pembina</option>
+                                <option value="pelatih">Pelatih</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="exampleInputText">Kebutuhan Permintaan</label>
+                            <input class="form-control" name="keterangan" id="exampleInputText" type="text" required>
+                        </div>
+                        <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
+                            type="submit">Send Message
+                            <svg class="bi bi-arrow-right-short" width="24" height="24" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                </path>
+                            </svg>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- Comment Form -->
     </div>
 @endsection

@@ -134,6 +134,12 @@
                                 <span>Pengumuman</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="/pembina-admin">
+                                <i class="bi bi-envelope"></i>
+                                <span>Permintaan Pembina</span>
+                            </a>
+                        </li>
                         <div class="dropdown">
                             <a class="nav-link collapsed dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
