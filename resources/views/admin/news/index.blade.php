@@ -33,8 +33,7 @@
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
                             <div class="card-body">
-                                <h5 class="card-title">All Pengumuman <span>| Today</span></h5>
-
+                                <h5 class="card-title">All Berita <span>| Today</span></h5>
                                 <table class="table table-borderless datatable table-responsive">
                                     <thead>
                                         <tr>

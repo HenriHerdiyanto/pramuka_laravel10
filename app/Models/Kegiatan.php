@@ -24,4 +24,9 @@ class Kegiatan extends Model
     {
         return $this->hasMany(Laporan::class);
     }
+    // relasi dengan tabel pendaftarans
+    public function pendaftarans()
+    {
+        return $this->hasMany(Pendaftaran::class);
+    }
 }

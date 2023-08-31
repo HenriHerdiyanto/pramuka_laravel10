@@ -32,7 +32,7 @@
                             <div class="mb-3 row">
                                 <label for="isi" class="col-sm-2 col-form-label">Isi Pengumuman</label>
                                 <div class="col-sm-10">
-                                    <textarea class="tinymce-editor" name="isi" rows="5" required></textarea>
+                                    <textarea class="form-control" name="isi" rows="5" required></textarea>
                                     {{-- <textarea name="isi" id="isi" cols="30" rows="10" class="form-control" required></textarea> --}}
                                 </div>
                             </div>

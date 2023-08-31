@@ -14,9 +14,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
 });
+
+// beranda
+Route::get('/', [App\Http\Controllers\BerandaController::class, 'index'])->name('beranda');
+// pengumuman-detail beranda
+Route::get('/pengumuman-detail/{id}', [App\Http\Controllers\BerandaController::class, 'pengumumanDetail'])->name('pengumuman-detail');
+// berita-detail beranda
+Route::get('/berita-detail/{id}', [App\Http\Controllers\BerandaController::class, 'beritaDetail'])->name('berita-detail');
+// kegiatan-detail beranda
+Route::get('/kegiatan-detail/{id}', [App\Http\Controllers\BerandaController::class, 'kegiatanDetail'])->name('kegiatan-detail');
+
+// daftar
+Route::get('/daftar', [App\Http\Controllers\DaftarController::class, 'index'])->name('daftar');
+// daftar detail
+Route::get('/daftar-detail/{id}', [App\Http\Controllers\DaftarController::class, 'daftarDetail'])->name('daftar-detail');
+// daftar tampil berdasarkan id
+Route::get('/daftar/create/{id}', [App\Http\Controllers\DaftarController::class, 'create'])->name('daftar.create');
+// daftar store
+Route::post('/daftar/store', [App\Http\Controllers\DaftarController::class, 'store'])->name('daftar.store');
+// daftar-peserta
+Route::get('/daftar-peserta/{id}', [App\Http\Controllers\DaftarController::class, 'daftarPeserta'])->name('daftar-peserta');
+
+// pengumuman-user
+Route::get('/pengumuman-user', [App\Http\Controllers\PengumumanUserController::class, 'index'])->name('pengumuman-user');
+// perlengkapan
+Route::get('/perlengkapan', [App\Http\Controllers\PengumumanUserController::class, 'perlengkapan'])->name('perlengkapan');
+// perlengkapan-detail
+Route::get('/perlengkapan-detail/{id}', [App\Http\Controllers\PengumumanUserController::class, 'perlengkapanDetail'])->name('perlengkapan-detail');
+
+
+
+
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
