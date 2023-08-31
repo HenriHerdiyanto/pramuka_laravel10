@@ -64,9 +64,13 @@
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
-                                    <img src="{{ asset('kategori_fotos/' . $item->foto) }}" alt="">
+                                    <a href="{{ route('dewan-detail', $item->id) }}">
+                                        <img src="{{ asset('kategori_fotos/' . $item->foto) }}" alt="">
+                                    </a>
                                 </div>
-                                <p class="mb-0">{{ $item->nama }}</p>
+                                <a href="{{ route('dewan-detail', $item->id) }}">
+                                    <p class="mb-0">{{ $item->nama }}</p>
+                                </a>
                             </div>
                         </div>
                     @endforeach

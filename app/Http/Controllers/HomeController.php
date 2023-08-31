@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        // panggil data barangs
+        $barangs = Barang::all();
+        $News = News::all();
+        return view('admin.home', compact('barangs', 'News'));
+
+        // return view('admin.home');
     }
 }

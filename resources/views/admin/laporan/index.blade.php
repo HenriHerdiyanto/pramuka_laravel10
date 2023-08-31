@@ -28,7 +28,7 @@
     @endif
     <section class="section">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="table-responsive">
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">

@@ -47,7 +47,7 @@
                 <div class="card-body">
                     <!-- Download Invoice -->
                     <div class="download-invoice text-end mb-3">
-                        <a class="btn btn-sm btn-primary me-2" href="{{ route('generate-pdf') }}">
+                        <a class="btn btn-sm btn-primary me-2" href="#">
                             <i class="bi bi-file-earmark-pdf me-1"></i>PDF
                         </a>
 
@@ -70,7 +70,6 @@
                                 <caption>List of works</caption>
                                 <thead class="table-light">
                                     <tr>
-                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
                                         <th>Ambalan</th>
@@ -81,7 +80,6 @@
                                 <tbody>
                                     @foreach ($kategoriMembers as $data)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->jabatan }}</td>
                                             <td class="text-center">{{ $data->ambalan }}</td>

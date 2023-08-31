@@ -86,21 +86,36 @@
                 </div>
                 <!-- Sidenav Nav -->
                 <ul class="sidenav-nav ps-0">
-                    <li><a href="page-home.html"><i class="bi bi-house-door"></i>Home</a></li>
-                    <li><a href="elements.html"><i class="bi bi-folder2-open"></i>Elements<span
-                                class="badge bg-danger rounded-pill ms-2">220+</span></a></li>
-                    <li><a href="pages.html"><i class="bi bi-collection"></i>Pages<span
-                                class="badge bg-success rounded-pill ms-2">100+</span></a></li>
-                    <li><a href="#"><i class="bi bi-cart-check"></i>Shop</a>
-                        <ul>
-                            <li><a href="page-shop-grid.html">Shop Grid</a></li>
-                            <li><a href="page-shop-list.html">Shop List</a></li>
-                            <li><a href="page-shop-details.html">Shop Details</a></li>
-                            <li><a href="page-cart.html">Cart</a></li>
-                            <li><a href="page-checkout.html">Checkout</a></li>
-                        </ul>
+                    <li>
+                        <a href="/">
+                            <i class="bi bi-house-door"></i>Home
+                        </a>
                     </li>
-                    <li><a href="settings.html"><i class="bi bi-gear"></i>Settings</a></li>
+                    <li>
+                        <a href="/daftar">
+                            <i class="bi bi-folder2-open"></i>Kegiatan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pengumuman-user">
+                            <i class="bi bi-collection"></i>pengumuman
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/perlengkapan">
+                            <i class="bi bi-cart-check"></i>Perlengkapan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/dewan">
+                            <i class="bi bi-gear"></i>Dewan Kerja
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pembina">
+                            <i class="bi bi-people-fill"></i>Pembina
+                        </a>
+                    </li>
                     <li>
                         <div class="night-mode-nav"><i class="bi bi-moon"></i>Night Mode
                             <div class="form-check form-switch">
@@ -108,7 +123,11 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="page-login.html"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
+                    <li>
+                        <a href="page-login.html">
+                            <i class="bi bi-box-arrow-right"></i>Logout
+                        </a>
+                    </li>
                 </ul>
                 <!-- Social Info -->
                 <div class="social-info-wrap"><a href="#"><i class="bi bi-facebook"></i></a><a
@@ -116,7 +135,7 @@
                             class="bi bi-linkedin"></i></a></div>
                 <!-- Copyright Info -->
                 <div class="copyright-info">
-                    <p>2021 &copy; Made by<a href="#">Designing World</a></p>
+                    <p>2023 &copy; Made by<a href="#">Henri Herdiyanto</a></p>
                 </div>
             </div>
         </div>
@@ -136,7 +155,7 @@
             <div class="footer-nav position-relative">
                 <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
                     <li class="active">
-                        <a href="/">
+                        <a href="/" data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
                             <svg class="bi bi-house" width="20" height="20" viewBox="0 0 16 16"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -145,32 +164,35 @@
                                 <path fill-rule="evenodd"
                                     d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z">
                                 </path>
-                            </svg><span>Home</span>
+                            </svg>
+                            {{-- <span>Home</span> --}}
                         </a>
                     </li>
                     <li>
-                        <a href="/daftar">
+                        <a href="/daftar" data-bs-toggle="tooltip" data-bs-placement="top" title="Kegiatan">
                             <svg class="bi bi-collection" width="20" height="20" viewBox="0 0 16 16"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M14.5 13.5h-13A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5zm-13 1A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z">
                                 </path>
                             </svg>
-                            <span>Kegiatan</span>
+                            {{-- <span>Kegiatan</span> --}}
                         </a>
                     </li>
                     <li>
-                        <a href="/pengumuman-user">
+                        <a href="/pengumuman-user" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Pengumuman">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
                                 <path
                                     d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z" />
                             </svg>
-                            <span>Pengumuman</span>
+                            {{-- <span>Pengumuman</span> --}}
                         </a>
                     </li>
                     <li>
-                        <a href="/perlengkapan">
+                        <a href="/perlengkapan" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Perlengkapan">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
                                 <path
@@ -178,11 +200,11 @@
                                 <path
                                     d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                             </svg>
-                            <span>Perlengkapan</span>
+                            {{-- <span>Perlengkapan</span> --}}
                         </a>
                     </li>
                     <li>
-                        <a href="/dewan">
+                        <a href="/dewan" data-bs-toggle="tooltip" data-bs-placement="top" title="Dewan Kerja">
                             <svg class="bi bi-gear" width="20" height="20" viewBox="0 0 16 16"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -192,20 +214,19 @@
                                     d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z">
                                 </path>
                             </svg>
-                            <span>Dewan Kerja</span>
                         </a>
                     </li>
                     {{-- li pembina --}}
                     <li>
-                        <a href="/pembina">
+                        <a href="/pembina" data-bs-toggle="tooltip" data-bs-placement="top" title="Pembina">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                             </svg>
-                            <span>Pembina</span>
                         </a>
                     </li>
+
                 </ul>
             </div>
         </div>
