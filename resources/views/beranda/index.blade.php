@@ -79,43 +79,115 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="card card-bg-img bg-img bg-overlay mb-3" style="background-image: url('img/bg-img/3.jpg')">
-            <div class="card-body direction-rtl p-5">
-                <h6 class="text-warning">Pengumuman</h6>
-                <h2 class="text-white">{{ $latestPengumuman->judul }}</h2>
-                <p class="mb-1 text-white">Kategori : {{ $latestPengumuman->kategori }}</p>
-                <p class="mb-4 text-white">Tanggal : {{ $latestPengumuman->tanggal }}</p>
-                <a class="btn btn-warning" href="{{ route('pengumuman-detail', ['id' => $latestPengumuman->id]) }}">View
-                    Detail</a>
+    @if (!empty($latestPengumuman))
+        <div class="container">
+            <div class="card card-bg-img bg-img bg-overlay mb-3" style="background-image: url('img/bg-img/3.jpg')">
+                <div class="card-body direction-rtl p-5">
+                    <h6 class="text-warning">Pengumuman</h6>
+                    <h2 class="text-white">{{ $latestPengumuman->judul }}</h2>
+                    <p class="mb-1 text-white">Kategori : {{ $latestPengumuman->kategori }}</p>
+                    <p class="mb-4 text-white">Tanggal : {{ $latestPengumuman->tanggal }}</p>
+                    <a class="btn btn-warning" href="{{ route('pengumuman-detail', ['id' => $latestPengumuman->id]) }}">View
+                        Detail</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="card service-card bg-info bg-gradient mb-3">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="service-text">
-                        <h6 class="text-warning">Kegiatan</h6>
-                        <h2>{{ $kegiatan->nama_kegiatan }}</h2>
-                        <p class="mb-0">{{ $kegiatan->tempat }}</p>
-                        <small class="text-white">{{ $kegiatan->tanggal }}</small>
+    @else
+        <div class="container pb-2">
+            <div class="card timeline-card bg-warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="timeline-text mb-2"><span class="badge mb-2 rounded-pill">Non Active</span>
+                            <h6>Pramuka PBD</h6>
+                        </div>
+                        <div class="timeline-icon mb-2">
+                            <svg class="bi bi-award" width="32" height="32" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z">
+                                </path>
+                                <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="service-img">
-                        <a class="btn btn-warning"
-                            href="{{ route('kegiatan-detail', ['id' => $kegiatan->id]) }}">Selengkapnya</a>
+                    <p class="mb-2">Mari bersama membangun pramuka papua barat daya menjadi yang terbaik.</p>
+                    <div class="timeline-tags"><span class="badge bg-light text-dark">#Pramuka</span><span
+                            class="badge bg-light text-dark">#PBD</span></div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if (!empty($kegiatan))
+        <div class="container">
+            <div class="card service-card bg-info bg-gradient mb-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="service-text">
+                            <h6 class="text-warning">Kegiatan</h6>
+                            <h2>{{ $kegiatan->nama_kegiatan }}</h2>
+                            <p class="mb-0">{{ $kegiatan->tempat }}</p>
+                            <small class="text-white">{{ $kegiatan->tanggal }}</small>
+                        </div>
+                        <div class="service-img">
+                            <a class="btn btn-warning"
+                                href="{{ route('kegiatan-detail', ['id' => $kegiatan->id]) }}">Selengkapnya</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="container px-0">
+            <div class="tiny-slider-three-wrapper">
+                <div class="tiny-slider-three">
+                    <!-- Single Hero Slide -->
+                    <div>
+                        <div class="single-hero-slide bg-img" style="background-color: grey;">
+                            <div class="slide-content">
+                                <h2 class="text-white">Pramuka Peduli</h2>
+                                <img src="{{ asset('pramuka_peduli.png') }}" class="img-fluid" style="width: 20%;"
+                                    alt="">
+                                <a class="btn btn-creative btn-warning" href="#">#Scout care</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Hero Slide -->
+                    <div>
+                        <div class="single-hero-slide bg-img" style="background-color: grey;">
+                            <div class="slide-content">
+                                <h2 class="text-dark">Raimuna Nasional</h2>
+                                <img src="{{ asset('rainas.jpg') }}" class="img-fluid" style="width: 39%;"
+                                    alt="">
+                                <a class="btn btn-creative btn-light" href="#">#Rainas</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Hero Slide -->
+                    <div>
+                        <div class="single-hero-slide bg-img" style="background-color: grey;">
+                            <div class="slide-content">
+                                <h2>Jambore Nasional</h2>
+                                <img src="{{ asset('jambore.jpg') }}" class="img-fluid" style="width: 39%;"
+                                    alt="">
+                                <a class="btn btn-creative btn-primary" href="#">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="container direction-rtl">
         <div class="card mb-3">
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-4">
                         <div class="feature-card mx-auto text-center">
-                            <div class="card mx-auto bg-gray"><img src="img/demo-img/gulp.png" alt=""></div>
+                            <div class="card mx-auto bg-gray">
+                                {{-- icon --}}
+                                <i class="bi bi-bookmark-heart-fill"></i>
+                            </div>
                             <p class="mb-0">Gulp 4</p>
                         </div>
                     </div>
@@ -238,5 +310,5 @@
             </div>
         </div>
     </div>
-    <div class="pb-3"></div>
+    <div class="pb-1"></div>
 @endsection

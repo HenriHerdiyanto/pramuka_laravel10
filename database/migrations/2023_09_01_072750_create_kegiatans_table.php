@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kegiatan');
-            $table->string('tempat');
-            $table->date('tanggal');
-            $table->text('keterangan');
-            $table->enum('status', ['aktif', 'tidak aktif']);
-            $table->string('surat');
-            $table->string('foto');
+            $table->string('nama_kegiatan')->nullable();
+            $table->string('tempat')->nullable();
+            $table->date('tanggal')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->enum('status', ['aktif', 'tidak aktif'])->nullable();
+            $table->string('surat')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('jadwal_kegiatan')->nullable();
             $table->timestamps();
         });
     }

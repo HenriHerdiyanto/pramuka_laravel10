@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kegiatan_id')->constrained('kegiatans');
-            $table->string('nama_kegiatan');
-            $table->date('tanggal');
-            $table->string('dokumen');
+            $table->foreignId('kegiatan_id')->constrained('kegiatans')->nullable();
+            $table->string('nama_kegiatan')->nullable();
+            $table->date('tanggal')->nullable();
+            $table->string('dokumen')->nullable();
             $table->timestamps();
         });
     }

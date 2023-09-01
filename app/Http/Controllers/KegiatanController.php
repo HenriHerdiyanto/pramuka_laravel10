@@ -37,6 +37,7 @@ class KegiatanController extends Controller
             'status' => 'required',
             'surat' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'jadwal_kegiatan' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
         // upload surat
@@ -57,6 +58,15 @@ class KegiatanController extends Controller
         } else {
             return redirect()->back()->with('error', 'Gagal upload foto');
         }
+        // upload jadwal
+        if ($request->hasFile('jadwal_kegiatan')) {
+            $file = $request->file('jadwal_kegiatan');
+            $nama_file_jadwal = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'kegiatan_fotos';
+            $file->move(public_path($tujuan_upload), $nama_file_jadwal);
+        } else {
+            return redirect()->back()->with('error', 'Gagal upload foto');
+        }
 
 
         $kegiatan = new Kegiatan;
@@ -67,6 +77,7 @@ class KegiatanController extends Controller
         $kegiatan->status = $validatedData['status'];
         $kegiatan->surat = $nama_file_surat;
         $kegiatan->foto = $nama_file;
+        $kegiatan->jadwal_kegiatan = $nama_file_jadwal;
         $kegiatan->save();
 
         return redirect()->route('kegiatan')->with('success', 'Kegiatan berhasil ditambahkan');
@@ -102,6 +113,7 @@ class KegiatanController extends Controller
             'keterangan' => 'required',
             'status' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'jadwal_kegiatan' => 'file|mimes:pdf,doc,docx|max:2048',
         ]);
 
         if ($request->hasFile('foto')) {
@@ -109,6 +121,14 @@ class KegiatanController extends Controller
             $nama_file = time() . "_" . $file->getClientOriginalName();
             $tujuan_upload = 'kegiatan_fotos';
             $file->move(public_path($tujuan_upload), $nama_file);
+        } else {
+            return redirect()->back()->with('error', 'Gagal upload foto');
+        }
+        if ($request->hasFile('jadwal_kegiatan')) {
+            $file = $request->file('jadwal_kegiatan');
+            $nama_file_jadwal = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'kegiatan_fotos';
+            $file->move(public_path($tujuan_upload), $nama_file_jadwal);
         } else {
             return redirect()->back()->with('error', 'Gagal upload foto');
         }
@@ -120,16 +140,18 @@ class KegiatanController extends Controller
         $kegiatan->keterangan = $validatedData['keterangan'];
         $kegiatan->status = $validatedData['status'];
         $kegiatan->foto = $nama_file;
+        $kegiatan->jadwal_kegiatan = $nama_file_jadwal;
         $kegiatan->save();
 
         return redirect()->route('kegiatan')->with('success', 'Kegiatan berhasil diupdate');
     }
-
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kegiatan $kegiatan)
+    public function destroy($id)
     {
-        //
+        $kegiatan = Kegiatan::find($id);
+        $kegiatan->delete();
+        return redirect()->route('kegiatan')->with('success', 'Kegiatan berhasil dihapus');
     }
 }

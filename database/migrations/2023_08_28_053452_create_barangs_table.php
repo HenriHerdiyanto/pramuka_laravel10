@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('deskripsi_barang');
-            $table->string('harga_barang');
-            $table->string('stok_barang');
-            $table->string('foto');
+            $table->string('nama_barang')->nullable();
+            $table->string('deskripsi_barang')->nullable();
+            $table->string('harga_barang')->nullable();
+            $table->string('stok_barang')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

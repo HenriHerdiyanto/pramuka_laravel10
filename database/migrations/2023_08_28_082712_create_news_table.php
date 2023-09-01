@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('penulis');
-            $table->text('isi');
-            $table->date('tanggal');
-            $table->string('status');
-            $table->string('foto');
+            $table->string('judul')->nullable();
+            $table->string('penulis')->nullable();
+            $table->text('isi')->nullable();
+            $table->date('tanggal')->nullable();
+            $table->string('status')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

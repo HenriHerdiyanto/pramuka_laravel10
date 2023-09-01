@@ -72,11 +72,19 @@
                                     <input type="file" name="foto" class="form-control" id="foto" required>
                                 </div>
                             </div>
+                            {{-- jadwal_kegiatan --}}
+                            <div class="mb-3 row">
+                                <label for="jadwal_kegiatan" class="col-sm-2 col-form-label">Jadwal Kegiatan</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="jadwal_kegiatan" value="aktif" class="form-control"
+                                        id="jadwal_kegiatan" required>
+                                </div>
+                            </div>
                             {{-- status --}}
                             <div class="mb-3 row">
-                                <label for="status" class="col-sm-2 col-form-label">Status Kegiatan</label>
+                                {{-- <label for="status" class="col-sm-2 col-form-label">Status Kegiatan</label> --}}
                                 <div class="col-sm-10">
-                                    <input type="text" name="status" value="aktif" class="form-control" id="status"
+                                    <input type="hidden" name="status" value="aktif" class="form-control" id="status"
                                         required>
                                 </div>
                             </div>

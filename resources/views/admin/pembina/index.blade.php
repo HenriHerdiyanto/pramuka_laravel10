@@ -48,13 +48,27 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $new->nama_ambalan }}</td>
-                                                <td>{{ $new->nama_pengajar }}</td>
+                                                <td>
+                                                    @if (!empty($new->nama_pengajar))
+                                                        {{ $new->nama_pengajar }}
+                                                    @else
+                                                        <button type="button" class="btn btn-sm btn-warning">Belum
+                                                            Ada</button>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $new->no_hp }}</td>
                                                 <td>
-                                                    <a href="{{ asset('surat_pembina/' . $new->surat) }}" target="_blank"
-                                                        rel="noopener noreferrer" class="btn btn-sm btn-primary">
-                                                        <i class='bi bi-eye'></i>
-                                                    </a>
+                                                    @if (!empty($new->surat))
+                                                        <a href="{{ asset('surat_pembina/' . $new->surat) }}"
+                                                            target="_blank" rel="noopener noreferrer"
+                                                            class="btn btn-sm btn-primary">
+                                                            Lihat Surat
+                                                        </a>
+                                                    @else
+                                                        <button type="button" class="btn btn-sm btn-warning">Belum
+                                                            Ada</button>
+                                                    @endif
+
                                                 </td>
                                                 <td>{{ $new->jenis }}</td>
                                                 <td>{{ $new->keterangan }}</td>

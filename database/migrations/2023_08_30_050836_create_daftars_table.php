@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('daftars', function (Blueprint $table) {
             $table->id();
             // relasi dengan tabel kegiatans
-            $table->foreignId('kegiatan_id')->constrained('kegiatans');
-            $table->string('nama_ambalan');
-            $table->string('nama_pembina');
-            $table->string('jumlah_putra');
-            $table->string('jumlah_putri');
-            $table->string('nama_peserta');
-            $table->string('bukti_transfer');
+            $table->foreignId('kegiatan_id')->constrained('kegiatans')->nullable();
+            $table->string('nama_ambalan')->nullable();
+            $table->string('nama_pembina')->nullable();
+            $table->string('jumlah_putra')->nullable();
+            $table->string('jumlah_putri')->nullable();
+            $table->string('nama_peserta')->nullable();
+            $table->string('bukti_transfer')->nullable();
             $table->timestamps();
         });
     }

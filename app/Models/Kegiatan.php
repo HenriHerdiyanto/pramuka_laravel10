@@ -16,7 +16,8 @@ class Kegiatan extends Model
         'keterangan',
         'status',
         'surat',
-        'foto'
+        'foto',
+        'jadwal_kegiatan'
     ];
 
     // relasi dengan tabel laporans

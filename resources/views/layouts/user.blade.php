@@ -78,10 +78,10 @@
                 <div class="sidenav-profile bg-gradient">
                     <div class="sidenav-style1"></div>
                     <!-- User Thumbnail -->
-                    <div class="user-profile"><img src="img/bg-img/2.jpg" alt=""></div>
+                    <div class="user-profile"><img src="{{ asset('lambang1.png') }}" alt=""></div>
                     <!-- User Info -->
                     <div class="user-info">
-                        <h6 class="user-name mb-0">Affan Islam</h6><span>CEO, Designing World</span>
+                        <h6 class="user-name mb-0">PRAMUKA</h6><span>Papua Barat Daya</span>
                     </div>
                 </div>
                 <!-- Sidenav Nav -->
@@ -130,9 +130,17 @@
                     </li>
                 </ul>
                 <!-- Social Info -->
-                <div class="social-info-wrap"><a href="#"><i class="bi bi-facebook"></i></a><a
-                        href="#"><i class="bi bi-twitter"></i></a><a href="#"><i
-                            class="bi bi-linkedin"></i></a></div>
+                <div class="social-info-wrap">
+                    <a href="https://www.facebook.com/radenmas.henry.9">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/radenmas.henry/">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/henry-herdiyanto-a240b420a/">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
                 <!-- Copyright Info -->
                 <div class="copyright-info">
                     <p>2023 &copy; Made by<a href="#">Henri Herdiyanto</a></p>
@@ -231,6 +239,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Mendapatkan path URL saat ini
+        var currentPath = window.location.pathname;
+
+        // Menghapus karakter '/' di awal path jika ada
+        currentPath = currentPath.replace(/^\/|\/$/g, '');
+
+        // Menggunakan nama kelas "active" pada elemen <li> yang sesuai dengan path URL saat ini
+        var menuItems = document.querySelectorAll('.h-100 li');
+        menuItems.forEach(function(item) {
+            var link = item.querySelector('a');
+            var linkPath = link.getAttribute('href').replace(/^\/|\/$/g,
+            ''); // Menghapus karakter '/' di awal dan akhir path
+            if (currentPath === linkPath) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    </script>
+
     <!-- All JavaScript Files -->
     <script src="{{ asset('assetUser/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assetUser/js/slideToggle.min.js') }}"></script>

@@ -52,10 +52,22 @@
                                         @foreach ($kegiatan as $kegiatan)
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $kegiatan->nama_kegiatan }}</td>
-                                                <td>{{ $kegiatan->tempat }}</td>
+                                                <td>
+                                                    <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                                                        {{ $kegiatan->nama_kegiatan }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                                                        {{ $kegiatan->tempat }}
+                                                    </span>
+                                                </td>
                                                 <td>{{ $kegiatan->tanggal }}</td>
-                                                <td>{{ $kegiatan->keterangan }}</td>
+                                                <td>
+                                                    <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                                                        {{ $kegiatan->keterangan }}
+                                                    </span>
+                                                </td>
                                                 <td>
                                                     @if ($kegiatan->status == 'aktif')
                                                         <span class="badge bg-success">Active</span>

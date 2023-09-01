@@ -4,11 +4,11 @@
         <div class="card p-3">
             <div class="row d-flex justify-content-between">
                 <div class="col-md-6 col-sm-6"> <!-- Use col-md-6 here -->
-                    <h1>Edit Berita</h1>
+                    <h1>Edit Permintaan Pembina</h1>
                     <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                            <li class="breadcrumb-item">Berita</li>
+                            <li class="breadcrumb-item">Pembina</li>
                         </ol>
                     </nav>
                 </div>

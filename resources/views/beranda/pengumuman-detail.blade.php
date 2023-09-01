@@ -69,7 +69,7 @@
         </div>
         <!-- Single Blog Card -->
         <div class="card">
-            <div class="row">
+            <div class="row d-flex justify-content-center">
                 @foreach ($SemuaPengumuman as $data)
                     <div class="col-lg-6 col-sm-6">
                         <div class="card shadow blog-list-card p-2">
@@ -95,8 +95,8 @@
 
         <div class="card related-product-card direction-rtl mb-5">
             <div class="card-body">
-                <h5 class="mb-3">Kelengkapan Pramuka</h5>
-                <div class="row g-3">
+                <h5 class="mb-3 text-center">Kelengkapan Pramuka</h5>
+                <div class="row g-3 d-flex justify-content-center">
                     @foreach ($barangs as $item)
                         <!-- Single Top Product Card -->
                         <div class="col-6 col-sm-4 col-lg-3">

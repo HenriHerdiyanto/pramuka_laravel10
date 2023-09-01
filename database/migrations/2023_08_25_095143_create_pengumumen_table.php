@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('pengumumen', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->text('isi');
-            $table->string('penulis');
-            $table->string('tanggal');
-            $table->string('kategori');
+            $table->string('judul')->nullable();
+            $table->text('isi')->nullable();
+            $table->string('penulis')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('kategori')->nullable();
             // status enum aktif dan tidak aktif
-            $table->enum('status', ['aktif', 'tidak aktif']);
-            $table->string('gambar');
+            $table->enum('status', ['aktif', 'tidak aktif'])->nullable();
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }

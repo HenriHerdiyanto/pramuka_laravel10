@@ -45,16 +45,20 @@
         <div class="card">
             <div class="card-body">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img class="img-fluid" style="width: 20%;" src="{{ asset('pembina.png') }}" alt="">
+                    <div class="col-lg-6 col-md-12 text-lg-start text-center mb-3 mb-lg-0">
+                        <!-- Use col-lg-6 for large screens, and col-md-12 for smaller screens -->
+                        <img class="img-fluid" style="max-width: 20%;" src="{{ asset('pembina.png') }}" alt="">
                     </div>
-                    <div class="col-md-6 text-end">
+                    <div class="col-lg-6 col-md-12 text-lg-end text-center">
+                        <!-- Use col-lg-6 for large screens, and col-md-12 for smaller screens -->
                         <a href="{{ route('pembina.create') }}" class="btn btn-outline-primary">Permintaan Pembina</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <div class="container">
         <div class="card">
@@ -65,7 +69,6 @@
                             <tr>
                                 <th>Nama Ambalan</th>
                                 <th>Nama Pengajar</th>
-                                <th>No Handphone</th>
                                 <th>Surat</th>
                                 <th>Permintaan</th>
                             </tr>
@@ -81,12 +84,14 @@
                                             {{ $item->nama_pengajar }}
                                         @endempty
                                     </td>
-                                    <td>{{ $item->no_hp }}</td>
                                     <td>
                                         @empty($item->surat)
                                             Sedang Diproses
                                         @else
-                                            {{ $item->surat }}
+                                            <a href="{{ asset('surat_pembina/' . $item->surat) }}" target="_blank"
+                                                rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                                                Lihat Surat
+                                            </a>
                                         @endempty
                                     </td>
                                     <td>{{ $item->jenis }}</td>

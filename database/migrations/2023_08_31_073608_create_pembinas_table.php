@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('pembinas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_ambalan');
+            $table->string('nama_ambalan')->nullable();
             $table->string('nama_pengajar')->nullable();
-            $table->string('no_hp');
+            $table->string('no_hp')->nullable();
             // upload surat boleh kosong/boleh tidak di input
             $table->string('surat')->nullable();
             // enum pelatih atau pembina
-            $table->enum('jenis', ['pelatih', 'pembina']);
+            $table->enum('jenis', ['pelatih', 'pembina'])->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });

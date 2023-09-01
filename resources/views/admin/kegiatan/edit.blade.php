@@ -91,12 +91,31 @@
                                         rel="noopener noreferrer">Lihat Surat</a> --}}
                                 </div>
                             </div>
+                            {{-- surat --}}
+                            <div class="mb-3 row">
+                                <label for="surat" class="col-sm-2 col-form-label">Ganti Jadwal Kegiatan</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="jadwal_kegiatan" value="{{ $kegiatan->jadwal_kegiatan }}"
+                                        class="form-control" id="jadwal_kegiatan">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="surat" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    {{-- iframe --}}
+                                    <iframe src="{{ asset('kegiatan_fotos/' . $kegiatan->jadwal_kegiatan) }}"
+                                        width="100%" height="500px"></iframe>
+                                    {{-- link --}}
+                                    {{-- <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" target="_blank"
+                                        rel="noopener noreferrer">Lihat Surat</a> --}}
+                                </div>
+                            </div>
                             {{-- foto --}}
                             <div class="mb-3 row">
                                 <label for="foto" class="col-sm-2 col-form-label">Ganti Foto Kegiatan</label>
                                 <div class="col-sm-10">
-                                    <input type="file" name="foto" value="{{ $kegiatan->foto }}" class="form-control"
-                                        id="foto">
+                                    <input type="file" name="foto" value="{{ $kegiatan->foto }}"
+                                        class="form-control" id="foto">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -109,7 +128,7 @@
                             <div class="mb-3 row">
                                 <label for="status" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" class="btn btn-primary w-100">Simpan</button>
                                 </div>
                             </div>
                         </form>

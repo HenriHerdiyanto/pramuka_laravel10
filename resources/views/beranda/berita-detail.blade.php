@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <img class="mb-3 rounded" src="{{ asset('berita/' . $news->foto) }}" alt="">
                     <h5>{{ $news->judul }}</h5>
-                    <p>{{ $news->isi }}</p>
+                    <p align="justify">{{ $news->isi }}</p>
                     <small>Penulis : {{ $news->penulis }} || {{ $news->tanggal }}</small>
                     {{-- <a class="btn btn-primary mb-4" href="#">Get A Quote</a> --}}
                     <div class="gallery-img mb-3" id="filterContainer">
@@ -79,8 +79,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                            @foreach ($allNews as $item)
+                        @foreach ($allNews as $item)
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                 <div class="card shadow-sm blog-list-card mb-4">
                                     <div class="d-flex align-items-center">
                                         <div class="card-blog-img position-relative"
@@ -100,8 +100,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
