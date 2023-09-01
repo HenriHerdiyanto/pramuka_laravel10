@@ -107,6 +107,8 @@ Route::middleware(['auth'])->group(function () {
 
     // kegiatan
     Route::get('/kegiatan', [App\Http\Controllers\KegiatanController::class, 'index'])->name('kegiatan');
+    // daftar-peserta-admin
+    Route::get('/daftar-peserta-admin', [App\Http\Controllers\KegiatanController::class, 'DaftarPeserta'])->name('daftar-peserta-admin');
     // kegiatan create
     Route::get('/kegiatan/create', [App\Http\Controllers\KegiatanController::class, 'create'])->name('kegiatan.create');
     // kegiatan store

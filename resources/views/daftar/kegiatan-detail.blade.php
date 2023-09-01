@@ -64,21 +64,20 @@
                 @endphp
                 {{-- <a class="badge bg-primary mb-2 d-inline-block" href="#">{{ $kegiatan->status }}</a> --}}
                 <h3 class="mb-3">{{ $kegiatan->nama_kegiatan }}</h3>
-                <div class="d-flex align-items-center mb-4">
+                <div class="d-flex align-items-center mb-2">
                     <span class="ms-2"><i class="bi bi-person-fill"></i> Admin</span>
                 </div>
-                <p class="fz-14"></p>
             </div>
         </div>
         <!-- All Comments -->
-        <div class="rating-and-review-wrapper pb-3 mt-3">
+        <div class="rating-and-review-wrapper pb-3 ">
             <div class="container">
                 <h6 class="mb-3"></h6>
                 {{-- download surat --}}
                 <div class="card p-2">
                     <div class="row">
                         <div class="col-6">
-                            <h6 class="mx-3">Detail Kegiatan</h6>
+                            <h6 class="mx-1">Detail Kegiatan</h6>
                         </div>
                         <div class="col-6 text-end">
                             <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" class="btn btn-outline-primary"
@@ -88,14 +87,16 @@
                 </div><br>
                 <div class="card">
                     <div class="card-body">
-                        <p>{{ $kegiatan->keterangan }}</p>
+                        <a href="{{ asset('kegiatan_fotos/' . $kegiatan->jadwal_kegiatan) }}"
+                            class="btn btn-outline-primary w-100" download>Download Jadwal Kegiatan</a><br>
+                        <p align="justify">{{ $kegiatan->keterangan }}</p>
                         <h6>Tempat Kegiatan</h6>
                         <p>{{ $kegiatan->tempat }}</p>
                         <h6>Tanggal Kegiatan</h6>
                         <p>{{ $kegiatan->tanggal }}</p><br>
+                        <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar
+                            Sekarang</a>
                     </div>
-                    <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar
-                        Sekarang</a>
                 </div>
             </div>
         </div>

@@ -55,30 +55,35 @@
         </div>
     </div>
     <div class="pt-3"></div>
-    <div class="container direction-rtl">
-        <div class="card mb-3">
-            <div class="card-body">
-                <div class="row g-3">
-                    {{-- panggil data kategori --}}
-                    @foreach ($kategori as $item)
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
+    @foreach ($kategori as $item)
+        @if (!empty($item))
+            <div class="container direction-rtl">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row g-3 d-flex justify-content-center">
+                            {{-- panggil data kategori --}}
+                            <div class="col-4">
+                                <div class="feature-card mx-auto text-center">
+                                    <div class="card mx-auto bg-gray">
+                                        <a href="{{ route('dewan-detail', $item->id) }}">
+                                            <img src="{{ asset('kategori_fotos/' . $item->foto) }}" alt="">
+                                        </a>
+                                    </div>
                                     <a href="{{ route('dewan-detail', $item->id) }}">
-                                        <img src="{{ asset('kategori_fotos/' . $item->foto) }}" alt="">
+                                        <p class="mb-0">{{ $item->nama }}</p>
                                     </a>
                                 </div>
-                                <a href="{{ route('dewan-detail', $item->id) }}">
-                                    <p class="mb-0">{{ $item->nama }}</p>
-                                </a>
                             </div>
+
+                            {{-- end --}}
                         </div>
-                    @endforeach
-                    {{-- end --}}
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @else
+        @endif
+    @endforeach
+
     @if (!empty($latestPengumuman))
         <div class="container">
             <div class="card card-bg-img bg-img bg-overlay mb-3" style="background-image: url('img/bg-img/3.jpg')">
@@ -117,7 +122,107 @@
             </div>
         </div>
     @endif
-
+    <div class="container pb-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="partner-logo-slide-wrapper">
+                    <div class="partner-slide">
+                        <!-- Partner Slide Card -->
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:70px;" class="img-fluid" src="{{ asset('icon10.png') }}"
+                                                alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:110px;" class="img-fluid"
+                                                src="{{ asset('icon6.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:110px;" class="img-fluid"
+                                                src="{{ asset('icon2.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:100px;" class="img-fluid"
+                                                src="{{ asset('icon7.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:100px;" class="img-fluid"
+                                                src="{{ asset('icon4.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:100px;" class="img-fluid"
+                                                src="{{ asset('icon5.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:100px;" class="img-fluid"
+                                                src="{{ asset('icon3.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:90px;" class="img-fluid"
+                                                src="{{ asset('icon8.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card partner-slide-card border my-2 bg-white">
+                                <div class="card-body p-3">
+                                    <a href="#">
+                                        <center><img style="width:100px;" class="img-fluid"
+                                                src="{{ asset('icon4.png') }}" alt=""></center>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @if (!empty($kegiatan))
         <div class="container">
             <div class="card service-card bg-info bg-gradient mb-3">

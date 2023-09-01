@@ -149,7 +149,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/kegiatan">Buat Kegiatan</a></li>
                                 <li><a class="dropdown-item" href="/laporan">Laporan Kegiatan</a></li>
-                                <li><a class="dropdown-item" href="#">Daftar Peserta</a></li>
+                                <li><a class="dropdown-item" href="/daftar-peserta-admin">Daftar Peserta</a></li>
                             </ul>
                         </div>
                         <li class="nav-item">

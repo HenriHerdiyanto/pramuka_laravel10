@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Daftar;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,13 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::all();
         return view('admin.kegiatan.index', compact('kegiatan'));
+    }
+
+    public function DaftarPeserta()
+    {
+        $daftars = Daftar::with('kegiatans')->get();
+        return view('admin.kegiatan.daftar-peserta-admin', compact('daftars'));
+        // dd($daftars);
     }
 
     /**

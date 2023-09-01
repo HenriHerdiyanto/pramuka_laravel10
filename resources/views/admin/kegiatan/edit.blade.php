@@ -83,12 +83,10 @@
                             <div class="mb-3 row">
                                 <label for="surat" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    {{-- iframe --}}
-                                    <iframe src="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" width="100%"
-                                        height="500px"></iframe>
                                     {{-- link --}}
-                                    {{-- <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}" target="_blank"
-                                        rel="noopener noreferrer">Lihat Surat</a> --}}
+                                    <a href="{{ asset('kegiatan_fotos/' . $kegiatan->surat) }}"
+                                        class="btn btn-outline-info w-100" target="_blank">Lihat
+                                        Surat</a>
                                 </div>
                             </div>
                             {{-- surat --}}

@@ -43,33 +43,38 @@
     </div><br>
     <!-- Service Card -->
     <div class="container">
-        <div class="card">
-            @foreach ($pengumumen as $data)
-                <!-- Single Blog Card -->
-                <div class="col-12 col-md-8 col-lg-7 col-xl-6">
-                    <div class="card shadow-sm blog-list-card p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="card-blog-img position-relative"
-                                style="background-image: url('{{ asset('pengumuman_fotos/' . $data->gambar) }}')">
-                                <span
-                                    class="badge bg-warning text-dark position-absolute card-badge">{{ $data->status }}</span>
-                            </div>
-                            <div class="card-blog-content">
-                                <span class="badge bg-danger rounded-pill mb-2 d-inline-block">
-                                    {{ $data->tanggal }}
-                                </span>
-                                <a class="blog-title d-block mb-3 text-dark" href="page-blog-details.html">
-                                    {{ $data->judul }}
-                                </a>
-                                <a class="btn btn-primary btn-sm"
-                                    href="{{ route('pengumuman-detail', ['id' => $data->id]) }}">Read More</a>
+        @if (!empty($pengumumen))
+            <div class="row">
+                @foreach ($pengumumen as $data)
+                    <div class="col-12 col-md-8 col-lg-7 col-xl-6">
+                        <div class="card shadow-sm blog-list-card p-2">
+                            <div class="d-flex align-items-center">
+                                <div class="card-blog-img position-relative"
+                                    style="background-image: url('{{ asset('pengumuman_fotos/' . $data->gambar) }}')">
+                                    <span
+                                        class="badge bg-warning text-dark position-absolute card-badge">{{ $data->status }}</span>
+                                </div>
+                                <div class="card-blog-content">
+                                    <span class="badge bg-danger rounded-pill mb-2 d-inline-block">
+                                        {{ $data->tanggal }}
+                                    </span>
+                                    <a class="blog-title d-block mb-3 text-dark"
+                                        href="{{ route('pengumuman-detail', ['id' => $data->id]) }}">
+                                        {{ $data->judul }}
+                                    </a>
+                                    <a class="btn btn-primary btn-sm"
+                                        href="{{ route('pengumuman-detail', ['id' => $data->id]) }}">Read More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-    </div><br>
+                @endforeach
+            </div>
+        @else
+            <h1>Tidak ada pengumuman yang tersedia.</h1>
+        @endif
+    </div>
+
     <div class="container">
         <div class="card related-product-card direction-rtl mb-5">
             <div class="card-header">
