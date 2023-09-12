@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\News;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +29,8 @@ class HomeController extends Controller
         // panggil data barangs
         $barangs = Barang::all();
         $News = News::all();
-        return view('admin.home', compact('barangs', 'News'));
+        $pengumumen = Pengumuman::all();
+        return view('admin.home', compact('barangs', 'News', 'pengumumen'));
 
         // return view('admin.home');
     }

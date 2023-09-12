@@ -24,41 +24,41 @@
                             @csrf
                             @method('post')
                             <div class="mb-3 row">
-                                <label for="judul" class="col-sm-2 col-form-label">Judul Pengumuman</label>
-                                <div class="col-sm-10">
+                                <label for="judul" class="col-sm-4 col-lg-2 col-form-label">Judul Pengumuman</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <input type="text" name="judul" class="form-control" id="judul" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="isi" class="col-sm-2 col-form-label">Isi Pengumuman</label>
-                                <div class="col-sm-10">
+                                <label for="isi" class="col-sm-4 col-lg-2 col-form-label">Isi Pengumuman</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <textarea class="form-control" name="isi" rows="5" required></textarea>
                                     {{-- <textarea name="isi" id="isi" cols="30" rows="10" class="form-control" required></textarea> --}}
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="penulis" class="col-sm-2 col-form-label">Nama Penulis</label>
-                                <div class="col-sm-10">
+                                <label for="penulis" class="col-sm-4 col-lg-2 col-form-label">Nama Penulis</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <input type="text" name="penulis" class="form-control" id="penulis" required>
                                 </div>
                             </div>
                             {{-- tanggal --}}
                             <div class="mb-3 row">
-                                <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Pengumuman</label>
-                                <div class="col-sm-10">
+                                <label for="tanggal" class="col-sm-4 col-lg-2 col-form-label">Tanggal Pengumuman</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <input type="date" name="tanggal" class="form-control" id="tanggal" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="kategori" class="col-sm-2 col-form-label">Kategori Pengumuman</label>
-                                <div class="col-sm-10">
+                                <label for="kategori" class="col-sm-4 col-lg-2 col-form-label">Kategori Pengumuman</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <input type="text" name="kategori" class="form-control" id="kategori" required>
                                 </div>
                             </div>
                             {{-- status --}}
                             <div class="mb-3 row">
-                                <label for="status" class="col-sm-2 col-form-label">Status</label>
-                                <div class="col-sm-10">
+                                <label for="status" class="col-sm-4 col-lg-2 col-form-label">Status Pengumuman</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <select class="form-select" aria-label="Default select example" name="status" required>
                                         <option selected>--- Pilih Status ---</option>
                                         <option value="aktif">Aktif</option>
@@ -68,14 +68,14 @@
                             </div>
                             {{-- foto --}}
                             <div class="mb-3 row">
-                                <label for="gambar" class="col-sm-2 col-form-label">Foto Pengumuman</label>
-                                <div class="col-sm-10">
+                                <label for="gambar" class="col-sm-4 col-lg-2 col-form-label">Foto Pengumuman</label>
+                                <div class="col-sm-8 col-lg-10">
                                     <input type="file" name="gambar" class="form-control" id="gambar" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="foto" class="col-sm-2 col-form-label"></label>
-                                <div class="col-sm-10">
+                                <label for="foto" class="col-sm-4 col-lg-2 col-form-label"></label>
+                                <div class="col-sm-8 col-lg-10">
                                     <button type="submit" class="btn btn-primary">Tambah</button>
                                     <a href="{{ route('member') }}" class="btn btn-warning">Kembali</a>
                                 </div>

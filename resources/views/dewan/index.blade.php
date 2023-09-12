@@ -43,40 +43,45 @@
     </div><br>
     <!-- Service Card -->
     <div class="container">
-        @php
-            $backgroundColors = ['bg-danger', 'bg-success', 'bg-info', 'bg-danger', 'bg-info', 'bg-dark'];
-            $currentColorIndex = 0;
-        @endphp
+        @if ($kategoriMembers->isEmpty())
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center">Dewan Kerja Belum Diinput</h1>
+                </div>
+            </div>
+        @else
+            @php
+                $backgroundColors = ['bg-danger', 'bg-success', 'bg-info', 'bg-danger', 'bg-info', 'bg-dark'];
+                $currentColorIndex = 0;
+            @endphp
 
-        @foreach ($kategoriMembers as $data)
-            <!-- Debugging: Output the kategori_id for each data -->
-            {{-- {{ dd($data->kategori_id) }} --}}
+            @foreach ($kategoriMembers as $data)
+                <!-- Debugging: Output the kategori_id for each data -->
+                {{-- {{ dd($data->kategori_id) }} --}}
 
-            <!-- Service Card -->
-            <div class="card service-card {{ $backgroundColors[$currentColorIndex] }} bg-gradient mb-3">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div class="service-text">
-                            <h3>{{ $data->nama }}</h3>
-                            {{-- view detail yang berisi parameter kategori_id --}}
-                            {{-- <a href="{{ route('dewan-detail', ['kategori_id' => $data->kategori_id]) }}"
-                                class="btn btn-outline-light">View Detail</a> --}}
-                            <a href="/dewan-detail/{{ $data->id }}" class="btn btn-outline-light">View Detail</a>
-                        </div>
-                        <div class="service-img">
-                            <img class="img-fluid" style="width: 50%;" src="{{ asset('kategori_fotos/' . $data->foto) }}"
-                                alt="">
+                <!-- Service Card -->
+                <div class="card service-card {{ $backgroundColors[$currentColorIndex] }} bg-gradient mb-3">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="service-text">
+                                <h3>{{ $data->nama }}</h3>
+                                {{-- Menggunakan route() untuk URL --}}
+                                <a href="{{ route('dewan-detail', ['id' => $data->id]) }}"
+                                    class="btn btn-outline-light">View Detail</a>
+                            </div>
+                            <div class="service-img">
+                                <img class="img-fluid" style="width: 50%;"
+                                    src="{{ asset('kategori_fotos/' . $data->foto) }}" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            @php
-                $currentColorIndex = ($currentColorIndex + 1) % count($backgroundColors);
-            @endphp
-        @endforeach
-
-
-
+                @php
+                    $currentColorIndex = ($currentColorIndex + 1) % count($backgroundColors);
+                @endphp
+            @endforeach
+        @endif
     </div>
+
 @endsection

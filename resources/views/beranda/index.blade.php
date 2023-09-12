@@ -313,29 +313,33 @@
         </div>
     </div>
     <div class="container">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h3>Semua Berita</h3>
-                <div class="testimonial-slide-three-wrapper">
-                    <div class="testimonial-slide3 testimonial-style3">
-                        <!-- Single Testimonial Slide -->
-                        @foreach ($news as $item)
-                            <div class="single-testimonial-slide">
-                                <div class="text-content">
-                                    <span class="d-inline-block badge bg-warning mb-2">
-                                        <i class="bi bi-star-fill me-1">
-                                            <a href="{{ route('berita-detail', ['id' => $item->id]) }}">Lihat Berita</a>
-                                        </i>
-                                    </span>
-                                    <h6 class="mb-2">{{ $item->judul }}</h6>
-                                    <span class="d-block">Penulis : {{ $item->penulis }}</span>
+        @if (!empty($news))
+        @else
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Semua Berita</h3>
+                    <div class="testimonial-slide-three-wrapper">
+                        <div class="testimonial-slide3 testimonial-style3">
+                            <!-- Single Testimonial Slide -->
+                            @foreach ($news as $item)
+                                <div class="single-testimonial-slide">
+                                    <div class="text-content">
+                                        <span class="d-inline-block badge bg-warning mb-2">
+                                            <i class="bi bi-star-fill me-1">
+                                                <a href="{{ route('berita-detail', ['id' => $item->id]) }}">Lihat
+                                                    Berita</a>
+                                            </i>
+                                        </span>
+                                        <h6 class="mb-2">{{ $item->judul }}</h6>
+                                        <span class="d-block">Penulis : {{ $item->penulis }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
     <div class="container direction-rtl">
         <div class="card">
@@ -380,40 +384,45 @@
         </div>
     </div><br>
     <div class="container">
-        <div class="card related-product-card direction-rtl mb-5">
-            <div class="card-header">
-                <h5 class="mb-3 text-center">Kelengkapan Pramuka</h5>
-            </div>
-            <div class="card-body">
-                <div class="row g-3 d-flex justify-content-center">
-                    @foreach ($barangs as $item)
-                        <!-- Single Top Product Card -->
-                        <div class="col-6 col-sm-4 col-lg-3">
-                            <div class="card single-product-card border">
-                                <div class="card-body p-3">
-                                    <a class="product-thumbnail d-block" href="page-shop-details.html">
-                                        <img src="{{ asset('barang_fotos/' . $item->foto) }}" alt="">
-                                        <span class="badge bg-primary">Sale</span>
-                                    </a>
-                                    <a class="product-title d-block text-truncate" href="page-shop-details.html">
-                                        {{ $item->nama_barang }}
-                                    </a>
-                                    <!-- Product Price -->
-                                    <p class="sale-price">Rp {{ $item->harga_barang }}</p>
-                                    <small>Stok {{ $item->stok_barang }}</small>
-                                    <a class="btn btn-danger btn-sm" href="#">Add to Cart</a>
+        @if (!empty($barangs))
+        @else
+            <div class="card related-product-card direction-rtl mb-5">
+                <div class="card-header">
+                    <h5 class="mb-3 text-center">Kelengkapan Pramuka</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3 justify-content-center">
+                        @foreach ($barangs as $item)
+                            <!-- Single Top Product Card -->
+                            <div class="col-6 col-sm-4 col-lg-3">
+                                <div class="card single-product-card border">
+                                    <div class="card-body p-3">
+                                        <a class="product-thumbnail d-block" href="page-shop-details.html">
+                                            <img src="{{ asset('barang_fotos/' . $item->foto) }}"
+                                                alt="{{ $item->nama_barang }}">
+                                            <span class="badge bg-primary">Sale</span>
+                                        </a>
+                                        <a class="product-title d-block text-truncate" href="page-shop-details.html">
+                                            {{ $item->nama_barang }}
+                                        </a>
+                                        <!-- Product Price -->
+                                        <p class="sale-price">Rp {{ $item->harga_barang }}</p>
+                                        <small>Stok {{ $item->stok_barang }}</small>
+                                        <a class="btn btn-danger btn-sm" href="#">Add to Cart</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-warning w-100" href="/perlengkapan">Lihat Semua</a>
+                    </div>
                 </div>
             </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center">
-                    <a class="btn btn-warning w-100" href="/perlengkapan">Lihat Semua</a>
-                </div>
-            </div>
-        </div>
+        @endif
+
     </div>
     <div class="pb-1"></div>
 @endsection

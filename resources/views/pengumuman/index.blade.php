@@ -42,8 +42,14 @@
         </div>
     </div><br>
     <!-- Service Card -->
-    <div class="container">
+    <div class="container mb-2">
         @if (!empty($pengumumen))
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Belum ada pengumuman yang tersedia.</h3>
+                </div>
+            </div>
+        @else
             <div class="row">
                 @foreach ($pengumumen as $data)
                     <div class="col-12 col-md-8 col-lg-7 col-xl-6">
@@ -70,12 +76,10 @@
                     </div>
                 @endforeach
             </div>
-        @else
-            <h1>Tidak ada pengumuman yang tersedia.</h1>
         @endif
     </div>
 
-    <div class="container">
+    <div class="container mt-2">
         <div class="card related-product-card direction-rtl mb-5">
             <div class="card-header">
                 <h5 class="mb-3 text-center">Kelengkapan Pramuka</h5>
