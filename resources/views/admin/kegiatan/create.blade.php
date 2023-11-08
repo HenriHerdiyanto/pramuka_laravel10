@@ -21,7 +21,6 @@
             {{ session('success') }}
         </div>
     @endif
-
     {{-- form --}}
     <section class="section">
         <div class="row">
@@ -42,6 +41,13 @@
                                 <label for="tempat" class="col-sm-2 col-form-label">Tempat Kegiatan</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="tempat" class="form-control" id="tempat" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="biaya_pendaftaran" class="col-sm-2 col-form-label">Biaya Pendaftaran</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="biaya_pendaftaran" class="form-control"
+                                        id="biaya_pendaftaran" required>
                                 </div>
                             </div>
                             <div class="mb-3 row">

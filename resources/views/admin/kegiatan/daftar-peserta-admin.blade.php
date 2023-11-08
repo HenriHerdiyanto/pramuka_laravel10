@@ -82,7 +82,7 @@
                                                 <td>
                                                     <a href="{{ route('kegiatan.edit', $kegiatan->id) }}"
                                                         class="btn btn-warning btn-sm"><i class='bx bx-edit'></i></a>
-                                                    <form action="{{ route('kegiatan.destroy', $kegiatan->id) }}"
+                                                    <form action="{{ route('peserta-admin.destroy', $kegiatan->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('delete')

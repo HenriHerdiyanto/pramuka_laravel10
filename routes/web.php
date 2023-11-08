@@ -167,4 +167,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/pembina-admin/update/{id}', [App\Http\Controllers\PembinaController::class, 'update'])->name('pembina-admin.update');
     // pembina-admin delete
     Route::delete('/pembina-admin/destroy/{id}', [App\Http\Controllers\PembinaController::class, 'destroy'])->name('pembina-admin.destroy');
+
+
+    // daftar kegiatan admin
+    Route::delete('/pendaftaran-admin/destroy/{id}', [App\Http\Controllers\DaftarController::class, 'destroy'])->name('peserta-admin.destroy');
 });

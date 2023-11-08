@@ -92,6 +92,8 @@
                         <p align="justify">{{ $kegiatan->keterangan }}</p>
                         <h6>Tempat Kegiatan</h6>
                         <p>{{ $kegiatan->tempat }}</p>
+                        <h6>Biaya Pendaftaran</h6>
+                        <p>{{ $kegiatan->biaya_pendaftaran }}</p>
                         <h6>Tanggal Kegiatan</h6>
                         <p>{{ $kegiatan->tanggal }}</p><br>
                         <a href="{{ route('daftar.create', $kegiatan->id) }}" class="btn btn-primary w-100 mb-2">Daftar

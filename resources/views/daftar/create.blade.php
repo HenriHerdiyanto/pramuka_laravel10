@@ -48,9 +48,11 @@
             </div>
             <div class="card-body">
                 <ul>
-                    <li><small>Pastikan anda sudah melakukan transfer biaya pendaftaran ke (No.Rek 123456789)</small></li>
-                    <li><small>Pastikan data yang anda masukkan benar</small></li>
-                    <li><small>Pastikan anda sudah mengupload surat sekolah yang resmi</small></li>
+                    <li><small>* Pastikan anda sudah melakukan transfer biaya pendaftaran ke (No.Rek 123456789) sebesar
+                            ( {{ $selectedKegiatan->biaya_pendaftaran }} )</small></li>
+                    <li><small>* Pastikan anda melampirkan bukti pembayaran</small></li>
+                    <li><small>* Pastikan data yang anda masukkan benar</small></li>
+                    <li><small>* Pastikan anda sudah mengupload surat sekolah yang resmi</small></li>
                 </ul>
             </div>
         </div>
@@ -131,6 +133,11 @@
                     <div class="form-group mt-2">
                         <label for="bukti_transfer">Bukti Transfer</label>
                         <input type="file" class="form-control" name="bukti_transfer">
+                    </div>
+                    <div class="form-group">
+                        <label for="biaya_pendaftaran">Biaya Pendaftaran</label>
+                        <input type="text" class="form-control" value="{{ $selectedKegiatan->biaya_pendaftaran }}"
+                            readonly>
                     </div>
                     <div class="mb-3 row">
                         <button type="submit" class="btn btn-primary w-100">Daftar Sekarang</button>

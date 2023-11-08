@@ -39,6 +39,7 @@ class KegiatanController extends Controller
     {
         $validatedData = $request->validate([
             'nama_kegiatan' => 'required|max:255',
+            'biaya_pendaftaran' => 'required',
             'tempat' => 'required',
             'tanggal' => 'required',
             'keterangan' => 'required',
@@ -76,9 +77,9 @@ class KegiatanController extends Controller
             return redirect()->back()->with('error', 'Gagal upload foto');
         }
 
-
         $kegiatan = new Kegiatan;
         $kegiatan->nama_kegiatan = $validatedData['nama_kegiatan'];
+        $kegiatan->biaya_pendaftaran = $validatedData['biaya_pendaftaran'];
         $kegiatan->tempat = $validatedData['tempat'];
         $kegiatan->tanggal = $validatedData['tanggal'];
         $kegiatan->keterangan = $validatedData['keterangan'];

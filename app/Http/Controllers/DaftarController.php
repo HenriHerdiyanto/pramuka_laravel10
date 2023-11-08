@@ -115,8 +115,10 @@ class DaftarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Daftar $daftar)
+    public function destroy($id)
     {
-        //
+        $daftar = Daftar::find($id);
+        $daftar->delete();
+        return redirect()->route('daftar-peserta-admin')->with('success', 'ok');
     }
 }
