@@ -59,6 +59,9 @@ Route::post('/pembina/store', [App\Http\Controllers\PembinaController::class, 's
 // pembina konfirmasi
 Route::get('/pembina/konfirmasi', [App\Http\Controllers\PembinaController::class, 'konfirmasi'])->name('pembina.konfirmasi');
 
+// order
+Route::post('/checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
+
 
 
 

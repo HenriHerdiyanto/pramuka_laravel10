@@ -59,15 +59,43 @@
             <div class="card product-details-card mb-3 direction-rtl">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-md-6 col-sm-12">
                             <h3>{{ $barang->nama_barang }}</h3>
                             <h1>Rp. {{ $barang->harga_barang }}</h1>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-sm-12">
                             <h5>Description</h5>
                             <p>{{ $barang->deskripsi_barang }}</p>
-                            {{-- button --}}
-                            <a href="" class="btn btn-outline-info w-100">Buy Now</a>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="/checkout" method="post">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="qty" class="form-label">Mau Pesan Berapa ?</label>
+                                            <input type="number" name="qty" class="form-control" id="qty">
+                                            <input type="hidden" name="barang_id" class="form-control"
+                                                value="{{ $barang->id }}" id="barang_id">
+                                            <input type="hidden" name="harga" class="form-control"
+                                                value="{{ $barang->harga_barang }}" id="harga">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Nama Lengkap Kamu</label>
+                                            <input type="text" name="name" class="form-control" id="name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Nomor Telepon</label>
+                                            <input type="text" name="phone" class="form-control" id="phone">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="address" class="form-label">Alamat Lengkap Kamu</label>
+                                            <input type="text" name="address" class="form-control" id="address">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Checkout</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><br>

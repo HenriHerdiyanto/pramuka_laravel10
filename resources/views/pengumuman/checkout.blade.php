@@ -9,6 +9,11 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
     <!-- Title -->
     <title>Pramuka PBD</title>
     <!-- Fonts -->
@@ -147,11 +152,61 @@
             </div>
         </div>
     </div>
-
-    <div class="page-content-wrapper">
-        @yield('content')
+    <div class="page-content-wrapper py-3">
+        <div class="container">
+            <div class="card invoice-card shadow">
+                <div class="card-body">
+                    <!-- Invoice Info -->
+                    <div class="invoice-info text-end mb-4">
+                        <h5 class="mb-1 fz-14">Detail Pesanan</h5>
+                        <h6 class="fz-12">Status Invoice :
+                            <span class="m-1 badge rounded-pill bg-success">{{ $order->status }}</span>
+                        </h6>
+                        {{-- <p class="mb-0 fz-12">Due Date: Nov 16, 2022</p> --}}
+                    </div>
+                    <!-- Invoice Table -->
+                    <div class="invoice-table">
+                        <div class="table-responsive">
+                            <table class="table table-bordered caption-top">
+                                <caption>Pesanan Anda</caption>
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>No HP</th>
+                                        <th>Alamat</th>
+                                        <th>Harga Barang</th>
+                                        <th>Qty</th>
+                                        <th class="text-center">Total Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $order->name }}</td>
+                                        <td>{{ $order->phone }}</td>
+                                        <td>{{ $order->address }}</td>
+                                        <td>Rp. {{ number_format($order->harga) }}</td>
+                                        <td>{{ $order->qty }}</td>
+                                        <td class="text-center">Rp. {{ number_format($order->total_price) }}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td class="text-end" colspan="5"></td>
+                                        <td class="text-end">
+                                            <button id="pay-button" class="btn btn-sm btn-primary">Bayar
+                                                Sekarang</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="mb-0">Notice: Setelah anda melakukan pembayaran anda akan segera dihubungi by WA.</p>
+                    <div class="snap-container"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <!-- Footer Nav -->
     <div class="footer-nav-area" id="footerNav">
         <div class="container px-0">
@@ -257,6 +312,16 @@
             } else {
                 item.classList.remove('active');
             }
+        });
+    </script>
+    {{-- script payment getway --}}
+    <script type="text/javascript">
+        // For example trigger on button clicked, or any time you need
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function() {
+            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+            window.snap.pay('{{ $snapToken }}');
+            // customer will be redirected after completing payment pop-up
         });
     </script>
 

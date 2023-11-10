@@ -20,13 +20,13 @@ return new class extends Migration
         //     $table->integer('lain-lain')->change();
         // });
         // tambah kolom
-        Schema::table('kegiatans', function (Blueprint $table) {
-            $table->string('biaya_pendaftaran')->after('nama_kegiatan');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->integer('barang_id')->after('id');
         });
         // //hapus kolom
-        Schema::table('daftars', function (Blueprint $table) {
-            $table->dropColumn('biaya_pendaftaran');
-        });
+        // Schema::table('daftars', function (Blueprint $table) {
+        //     $table->dropColumn('biaya_pendaftaran');
+        // });
     }
 
     /**
